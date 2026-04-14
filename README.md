@@ -1,5 +1,56 @@
 Arduino-DS3231
-==============
+This project is a smart alarm clock system built using an Arduino and a DS3231 RTC Module.
+It not only rings at a set time but also ensures the user is actually awake using a PIR motion sensor.
+
+Features
+Real-time alarm using RTC module
+Buzzer alarm sound (tone-based)
+Button to stop the alarm
+Motion detection using PIR sensor
+LED indicator for movement detection
+Alarm resets if no movement is detected
+Ensures user is awake before turning off
+Components Used
+Arduino Board (e.g., Arduino Uno)
+DS3231 RTC Module
+PIR Motion Sensor (HC-SR501)
+Push Button
+Buzzer
+LED (Built-in)
+Jumper Wires
+How It Works
+The RTC module keeps track of real time
+When the set alarm time is reached → buzzer starts ringing
+User must press the button to stop the alarm
+After stopping:
+System checks for motion using PIR sensor
+If no movement is detected → alarm restarts
+User must stay active for a certain time to fully disable the alarm
+Code Logic
+loop() continuously checks current time
+When time matches → alarm() function is triggered
+alarm():
+Plays sound using buzzer
+Waits for button press
+Monitors motion using PIR sensor
+Resets alarm if inactivity detected
+Alarm Time Setup
+int set_hour = 7;
+int set_minute = 0;
+
+Change these values to set your desired alarm time.
+
+Pin Configuration
+Button → Pin 9
+PIR Sensor → Pin 7
+Buzzer → Pin 11
+LED → Built-in LED
+
+Highlights
+Combines time + human activity detection
+Prevents users from ignoring alarms
+Simple but practical real-life application
+Low-cost hardware implementation
 
 DS3231 Real-Time Clock.
 
